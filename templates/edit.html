@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} edit task {% endblock %}
+
+
+{% block content %}
+<div class="container ">
+    <h1 class="text-center">EDIT A TASK</h1>
+</div>
+<div class="container mt-5">
+
+    <form action="/edit/{{ item }}" , method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Task Title </label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" class="form-control" id="desc" name="desc">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
+{% endblock %}

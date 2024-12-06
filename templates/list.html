@@ -1,0 +1,27 @@
+<div class="container">
+    {% if tasks: %}
+    <h3> Number of  tasks : {{ number_of_task  }} </h3>
+      <a href="/add_task" type="button" class="btn btn-primary">add a task</a>
+    {% elif user and not tasks %}
+     <h3> There is no task for you : </h3>
+      <a href="/add_task" type="button" class="btn btn-primary">add a task</a>
+    {% else : %}
+     <h3> you are not login.... : </h3>
+     <a href="/login" type="button" class="btn btn-primary">Login</a>
+    {% endif %}
+
+    <br>
+    <!--implement jinja-->
+    <ul class="list-group mt-3">
+        {% if tasks: %}
+        {% for task in tasks %}
+        <li class="list-group-item">
+            <h1>{{ task[1] }}</h1>
+            <h6>{{ task[2] }}</h6>
+            <a href="/edit/{{ task[0] }}" class="btn btn-info">Edit </a>
+             <a href="/delete/{{ task[0] }}" class="btn btn-danger">Delete </a>
+        </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+</div>
